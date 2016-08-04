@@ -8,6 +8,10 @@ namespace HouseProgectThird
 {
     interface IHouseObjectInterface
     {
+        string Name
+        {
+            get;
+        }
         void TurnOn();
         void SelectMode();
         void Repair();
@@ -15,12 +19,17 @@ namespace HouseProgectThird
         void Status();
     }
 
-    class Boiler:IHouseObjectInterface
+    class Boiler : IHouseObjectInterface
     {
+        string name = "бойлер";
         bool onStatus = false;
         bool lifeStatus = true;
         bool useStatus = false;
         int temperature;
+        public string Name
+        {
+            get { return name; }
+        }
         public void TurnOn()
         {
             if (lifeStatus == true)
@@ -69,12 +78,16 @@ namespace HouseProgectThird
             Console.WriteLine("статус:\n- рабочий - {0}\n-включен - {1}\n-температура - {2}\n-бойлер используется - {3}", lifeStatus, onStatus, temperature, useStatus);
         }
     }
-    class TV :IHouseObjectInterface
+    class TV : IHouseObjectInterface
     {
         private bool onStatus = false;
         private bool lifeStatus = true;
         private bool useStatus = false;
-
+        string name = "тв";
+        public string Name
+        {
+            get { return name; }
+        }
         public void TurnOn()
         {
             if (lifeStatus == true)
@@ -118,12 +131,17 @@ namespace HouseProgectThird
         }
     }
 
-    class Fridge:IHouseObjectInterface
+    class Fridge : IHouseObjectInterface
     {
         private bool lifeStatus;
         private bool onStatus;
         private bool useStatus;
         private int temperature;
+        string name ="холодильник";
+        public string Name
+        {
+            get { return name; }
+        }
         public void TurnOn()
         {
             if (lifeStatus == true)

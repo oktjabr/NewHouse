@@ -8,9 +8,9 @@ namespace HouseProgectThird
 {
     class House
     {
-        IHouseObjectInterface tv;
-        IHouseObjectInterface boiler;
-        IHouseObjectInterface fridge;
+        //IHouseObjectInterface tv;
+        //IHouseObjectInterface boiler;
+        //IHouseObjectInterface fridge;
         Handler handler;
         GuestUser user;
         public House()
@@ -19,11 +19,11 @@ namespace HouseProgectThird
         }
         public void InizializedComponentHouse()
         {
-             tv = new TV();
-            boiler = new Boiler();
-            fridge = new Fridge();
+            // tv = new TV();
+            //boiler = new Boiler();
+            //fridge = new Fridge();
 
-            handler = new Handler(boiler,tv,fridge);
+            handler = new Handler();    //(boiler,tv,fridge);
         }
         public void Identification()
         {

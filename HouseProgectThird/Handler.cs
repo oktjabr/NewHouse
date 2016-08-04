@@ -8,78 +8,87 @@ namespace HouseProgectThird
 {
     class Handler
     {
-        IHouseObjectInterface boiler;
-        IHouseObjectInterface tv;
-        IHouseObjectInterface fridge;
+        //IHouseObjectInterface boiler;
+        //IHouseObjectInterface tv;
+        //IHouseObjectInterface fridge;
 
         IHouseObjectInterface[] houseObjectArray = null;
 
         private int possition = -1;
 
-        private string objectControl;
-        public Handler(IHouseObjectInterface boiler, IHouseObjectInterface tv, IHouseObjectInterface fridge)
-        {
-            houseObjectArray = new IHouseObjectInterface[3];
-            this.boiler = boiler;
-            this.tv = tv;
-            this.fridge = fridge;
 
-            houseObjectArray[0] = boiler;
-            houseObjectArray[1] = tv;
-            houseObjectArray[2] = fridge;
+        public Handler()
+        {
+            houseObjectArray = new IHouseObjectInterface[] { new Boiler(), new TV(), new Fridge() };
+            //boiler = new Boiler();
+            //tv = new TV();
+            //fridge = new Fridge();
+
+            //houseObjectArray[0] = boiler;
+            //houseObjectArray[1] = tv;
+            //houseObjectArray[2] = fridge;
 
         }
 
         public void SelectedObjectControl()
         {
             Console.WriteLine("Выберите обьект использования: бойлер, тв, холодильник");
-            switch (Console.ReadLine())
+
+            string l = Console.ReadLine();
+            for (int i = 0; i < houseObjectArray.Length; i++)
             {
-                case "бойлер":
-                    possition = 0;
-                    break;
-                case "тв":
-                    possition = 1;
-                    break;
-                case "холодильник":
-                    possition = 2;
-                    break;
-                default:
-                    Console.WriteLine("Вы выбрали неверный обьект использования");
-                    break;
-            }
-
+                if (l == houseObjectArray[i].Name)
+                {
+                    possition = i;
+                }
         }
+        //switch (Console.ReadLine())
+        //{
+        //    case "бойлер":
+        //        possition = 0;
+        //        break;
+        //    case "тв":
+        //        possition = 1;
+        //        break;
+        //    case "холодильник":
+        //        possition = 2;
+        //        break;
+        //    default:
+        //        Console.WriteLine("Вы выбрали неверный обьект использования");
+        //        break;
+        //}
 
-        public void RepairBoiler()
-        {
-
-            houseObjectArray[possition].Repair();
-
-        }
-        public void TurnOnBoiler()
-        {
-
-            houseObjectArray[possition].TurnOn();
-
-
-        }
-        public void SelectTemperatureBoiler()
-        {
-
-            houseObjectArray[possition].SelectMode();
-
-        }
-        public void StatusBoiler()
-        {
-
-            houseObjectArray[possition].Status();
-
-        }
-        public void UseBoiler()
-        {
-
-            houseObjectArray[0].UseObject();
-        }
     }
+
+    public void RepairHandler()
+    {
+
+        houseObjectArray[possition].Repair();
+
+    }
+    public void TurnOnHandler()
+    {
+
+        houseObjectArray[possition].TurnOn();
+
+
+    }
+    public void SelectModeHandler()
+    {
+
+        houseObjectArray[possition].SelectMode();
+
+    }
+    public void StatusHandler()
+    {
+
+        houseObjectArray[possition].Status();
+
+    }
+    public void UseHouseObjectHandler()
+    {
+
+        houseObjectArray[possition].UseObject();
+    }
+}
 }

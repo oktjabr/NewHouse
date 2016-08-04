@@ -18,7 +18,7 @@ namespace HouseProgectThird
 
         protected virtual void UseHouseObject()
         {
-             myDelegate = new MyDelegate(handler.UseBoiler);
+             myDelegate = new MyDelegate(handler.UseHouseObjectHandler);
         }
         protected virtual void RepareHouseObject()
         {
@@ -26,7 +26,7 @@ namespace HouseProgectThird
         }
         protected virtual void TurnOnHouseObject()
         {
-             myDelegate = new MyDelegate(handler.TurnOnBoiler);
+             myDelegate = new MyDelegate(handler.TurnOnHandler);
         }
         protected virtual void SelectHauseObjectMode()
         {
@@ -34,7 +34,7 @@ namespace HouseProgectThird
         }
         protected virtual void ShowStatuSHouseObject()
         {
-             myDelegate = new MyDelegate(handler.StatusBoiler);
+             myDelegate = new MyDelegate(handler.StatusHandler);
         }
         public void Control()
         {
@@ -91,7 +91,7 @@ namespace HouseProgectThird
         }
         protected override void SelectHauseObjectMode()
         {
-             myDelegate = new MyDelegate(handler.SelectTemperatureBoiler);
+             myDelegate = new MyDelegate(handler.SelectModeHandler);
         }
     }
     class Master : GuestUser
@@ -105,6 +105,14 @@ namespace HouseProgectThird
         protected override void UseHouseObject()
         {
             Console.WriteLine("Вы не можете использовать обьект");
+        }
+        protected override void SelectHauseObjectMode()
+        {
+            myDelegate = new MyDelegate(handler.SelectModeHandler);
+        }
+        protected override void RepareHouseObject()
+        {
+            myDelegate = new MyDelegate(handler.RepairHandler);
         }
 
     }
