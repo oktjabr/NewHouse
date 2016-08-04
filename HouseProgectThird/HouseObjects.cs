@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HouseProgectThird
-{//сделать реализация интерфейса HomeTech с однотипными полями для возможности создать коллекцию
+{
     interface IHouseObjectInterface
     {
         void TurnOn();

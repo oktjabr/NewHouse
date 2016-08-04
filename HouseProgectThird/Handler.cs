@@ -12,69 +12,74 @@ namespace HouseProgectThird
         IHouseObjectInterface tv;
         IHouseObjectInterface fridge;
 
+        IHouseObjectInterface[] houseObjectArray = null;
+
+        private int possition = -1;
+
         private string objectControl;
         public Handler(IHouseObjectInterface boiler, IHouseObjectInterface tv, IHouseObjectInterface fridge)
         {
+            houseObjectArray = new IHouseObjectInterface[3];
             this.boiler = boiler;
             this.tv = tv;
             this.fridge = fridge;
+
+            houseObjectArray[0] = boiler;
+            houseObjectArray[1] = tv;
+            houseObjectArray[2] = fridge;
+
         }
 
         public void SelectedObjectControl()
         {
             Console.WriteLine("Выберите обьект использования: бойлер, тв, холодильник");
-            objectControl = Console.ReadLine();
+            switch (Console.ReadLine())
+            {
+                case "бойлер":
+                    possition = 0;
+                    break;
+                case "тв":
+                    possition = 1;
+                    break;
+                case "холодильник":
+                    possition = 2;
+                    break;
+                default:
+                    Console.WriteLine("Вы выбрали неверный обьект использования");
+                    break;
+            }
+
         }
 
         public void RepairBoiler()
         {
-            switch (objectControl)
-            {
-                case "бойлер":
-                    boiler.Repair();
-                    break;
-            }
+
+            houseObjectArray[possition].Repair();
 
         }
         public void TurnOnBoiler()
         {
-            switch (objectControl)
-            {
-                case "бойлер":
-                    boiler.TurnOn();
-                    break;
-            }
+
+            houseObjectArray[possition].TurnOn();
+
 
         }
         public void SelectTemperatureBoiler()
         {
-            switch (objectControl)
-            {
-                case "бойлер":
-                    boiler.SelectMode();
-                    break;
-            }
+
+            houseObjectArray[possition].SelectMode();
 
         }
         public void StatusBoiler()
         {
-            switch (objectControl)
-            {
-                case "бойлер":
-                    boiler.Status();
-                    break;
-            }
+
+            houseObjectArray[possition].Status();
 
         }
         public void UseBoiler()
         {
-            switch (objectControl)
-            {
-                case "бойлер":
-                    boiler.UseObject();
-                    break;
-            }
 
+            houseObjectArray[0].UseObject();
         }
     }
 }
