@@ -50,10 +50,11 @@ namespace HouseProgectThird
             bool value = true;
             while (value)
             {
-                Console.WriteLine("для выхода пользователю нажмите quit ");
+                Console.WriteLine("для выхода из программы наберите quit\nдля продолжения нажмите enter ");
                 if (Console.ReadLine() == "quit")
                 {
                     value = false;
+                    //break;
                 }
                 else
                 {

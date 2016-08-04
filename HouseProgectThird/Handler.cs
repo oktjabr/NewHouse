@@ -8,10 +8,7 @@ namespace HouseProgectThird
 {
     class Handler
     {
-        //IHouseObjectInterface boiler;
-        //IHouseObjectInterface tv;
-        //IHouseObjectInterface fridge;
-
+      
         IHouseObjectInterface[] houseObjectArray = null;
 
         private int possition = -1;
@@ -20,14 +17,7 @@ namespace HouseProgectThird
         public Handler()
         {
             houseObjectArray = new IHouseObjectInterface[] { new Boiler(), new TV(), new Fridge() };
-            //boiler = new Boiler();
-            //tv = new TV();
-            //fridge = new Fridge();
-
-            //houseObjectArray[0] = boiler;
-            //houseObjectArray[1] = tv;
-            //houseObjectArray[2] = fridge;
-
+            //для добавления обьекта необходимо вносить в конструктор попробовать исправить 
         }
 
         public void SelectedObjectControl()
@@ -42,22 +32,7 @@ namespace HouseProgectThird
                     possition = i;
                 }
         }
-        //switch (Console.ReadLine())
-        //{
-        //    case "бойлер":
-        //        possition = 0;
-        //        break;
-        //    case "тв":
-        //        possition = 1;
-        //        break;
-        //    case "холодильник":
-        //        possition = 2;
-        //        break;
-        //    default:
-        //        Console.WriteLine("Вы выбрали неверный обьект использования");
-        //        break;
-        //}
-
+      
     }
 
     public void RepairHandler()

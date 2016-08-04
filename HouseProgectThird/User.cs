@@ -41,7 +41,7 @@ namespace HouseProgectThird
         public void Control()
         {
             Console.WriteLine("выберите действие: использовать, включить, установить режим, статус, ремонт");
-            Console.WriteLine("Для выхода из режима наберите quit");
+            Console.WriteLine("Для смены пользователя наберите quit");
             bool value = true;
             while (value)
             {

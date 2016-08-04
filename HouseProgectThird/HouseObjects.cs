@@ -37,6 +37,10 @@ namespace HouseProgectThird
                 onStatus = true;
                 Console.WriteLine("бойлер включен");
             }
+            else
+            {
+                Console.WriteLine("бойлер сломан нужен мастер");
+            }
         }
         public void SelectMode()
         {
@@ -95,12 +99,17 @@ namespace HouseProgectThird
                 onStatus = true;
                 Console.WriteLine("телевизор включен");
             }
+            else
+            {
+                Console.WriteLine("телевизор сломан нужен мастер");
+            }
         }
         public void SelectMode()
         {
             if (lifeStatus == true)
             {
-                //придумать настройку каналов тв  
+                //придумать настройку каналов тв использовать коллекцию каналов
+                
                 Console.WriteLine("Каналы не настроены");
             }
 
@@ -112,6 +121,7 @@ namespace HouseProgectThird
         }
         public void UseObject()
         {
+            // переделать метод для тв с учетом правки по каналам
             if (lifeStatus == true)
             {
                 if (onStatus == true)
@@ -133,9 +143,9 @@ namespace HouseProgectThird
 
     class Fridge : IHouseObjectInterface
     {
-        private bool lifeStatus;
-        private bool onStatus;
-        private bool useStatus;
+        private bool lifeStatus = true;
+        private bool onStatus  = false;
+        private bool useStatus = false;
         private int temperature;
         string name ="холодильник";
         public string Name
@@ -149,6 +159,10 @@ namespace HouseProgectThird
                 onStatus = true;
                 Console.WriteLine("холодильник включен");
             }
+            else
+            {
+                Console.WriteLine("холодильник сломан нужен мастер");
+            }
         }
         public void SelectMode()
         {
@@ -156,7 +170,7 @@ namespace HouseProgectThird
             {
                 Console.WriteLine("Выберите температурный режим холодильника от +4 до -8 ");
                 temperature = Convert.ToInt32(Console.ReadLine());
-                if (temperature > 4 && temperature < -8)
+                if (temperature > 4 || temperature < -8)
                 {
                     lifeStatus = false;
                     onStatus = false;
