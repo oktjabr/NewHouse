@@ -1,0 +1,6 @@
+c:\users\katuha\documents\visual studio 2015\Projects\OOP\HouseProgectThird\HouseProgectThird\bin\Debug\HouseProgectThird.exe.config
+c:\users\katuha\documents\visual studio 2015\Projects\OOP\HouseProgectThird\HouseProgectThird\bin\Debug\HouseProgectThird.exe
+c:\users\katuha\documents\visual studio 2015\Projects\OOP\HouseProgectThird\HouseProgectThird\bin\Debug\HouseProgectThird.pdb
+c:\users\katuha\documents\visual studio 2015\Projects\OOP\HouseProgectThird\HouseProgectThird\obj\Debug\HouseProgectThird.csprojResolveAssemblyReference.cache
+c:\users\katuha\documents\visual studio 2015\Projects\OOP\HouseProgectThird\HouseProgectThird\obj\Debug\HouseProgectThird.exe
+c:\users\katuha\documents\visual studio 2015\Projects\OOP\HouseProgectThird\HouseProgectThird\obj\Debug\HouseProgectThird.pdb
