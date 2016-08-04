@@ -23,6 +23,7 @@ namespace HouseProgectThird
         protected virtual void RepareHouseObject()
         {
             Console.WriteLine("Вы не можете чинить ");
+            myDelegate = null;
         }
         protected virtual void TurnOnHouseObject()
         {
@@ -30,7 +31,8 @@ namespace HouseProgectThird
         }
         protected virtual void SelectHauseObjectMode()
         {
-            Console.WriteLine("Вы неможете устанавливать режим "); 
+            Console.WriteLine("Вы неможете устанавливать режим ");
+            myDelegate = null;
         }
         protected virtual void ShowStatuSHouseObject()
         {
@@ -39,43 +41,51 @@ namespace HouseProgectThird
         public void Control()
         {
             Console.WriteLine("выберите действие: использовать, включить, установить режим, статус, ремонт");
-            switch(Console.ReadLine())
+            Console.WriteLine("Для выхода из режима наберите quit");
+            bool value = true;
+            while (value)
             {
-                case"использовать":
-                    UseHouseObject();
-                    if (myDelegate != null)
-                    {
-                        myDelegate.Invoke();
-                    }
-                    break;
-                case "включить":
-                    TurnOnHouseObject();
-                    if (myDelegate != null)
-                    {
-                        myDelegate.Invoke();
-                    }
-                    break;
-                case "установить режим":
-                    SelectHauseObjectMode();
-                    if (myDelegate != null)
-                    {
-                        myDelegate.Invoke();
-                    }
-                    break;
-                case "статус":
-                    ShowStatuSHouseObject();
-                    if (myDelegate != null)
-                    {
-                        myDelegate.Invoke();
-                    }
-                    break;
-                case "ремонт":
-                    RepareHouseObject();
-                    if (myDelegate != null)
-                    {
-                        myDelegate.Invoke();
-                    }
-                    break;
+                switch (Console.ReadLine())
+                {
+                    case "использовать":
+                        UseHouseObject();
+                        if (myDelegate != null)
+                        {
+                            myDelegate.Invoke();
+                        }
+                        break;
+                    case "включить":
+                        TurnOnHouseObject();
+                        if (myDelegate != null)
+                        {
+                            myDelegate.Invoke();
+                        }
+                        break;
+                    case "установить режим":
+                        SelectHauseObjectMode();
+                        if (myDelegate != null)
+                        {
+                            myDelegate.Invoke();
+                        }
+                        break;
+                    case "статус":
+                        ShowStatuSHouseObject();
+                        if (myDelegate != null)
+                        {
+                            myDelegate.Invoke();
+                        }
+                        break;
+                    case "ремонт":
+                        RepareHouseObject();
+                        if (myDelegate != null)
+                        {
+                            myDelegate.Invoke();
+                        }
+                        break;
+                    case "quit":
+                        value = false;
+                        break;
+                }
             }
         }
 
@@ -105,6 +115,7 @@ namespace HouseProgectThird
         protected override void UseHouseObject()
         {
             Console.WriteLine("Вы не можете использовать обьект");
+            myDelegate = null;
         }
         protected override void SelectHauseObjectMode()
         {

@@ -19,15 +19,11 @@ namespace HouseProgectThird
         }
         public void InizializedComponentHouse()
         {
-            // tv = new TV();
-            //boiler = new Boiler();
-            //fridge = new Fridge();
-
-            handler = new Handler();    //(boiler,tv,fridge);
+            handler = new Handler();   
         }
         public void Identification()
         {
-            // построение екземпляра в зависимовти от типа: гость, хазяин, мастер.
+            
             Console.WriteLine("Кто вы назовитесь?хазяин,гость,мастер, или еще кто?? ");
             switch (Console.ReadLine())
             {
@@ -40,18 +36,32 @@ namespace HouseProgectThird
                 case "мастер":
                     user = new Master(handler);
                     break;
+
                 default:
                     Console.WriteLine("Извините мы вызываем полицию");
                     //добавить сигнализацию
                     break;
 
+
             }
         }
         public void Start()
         {
-            Identification();
-            handler.SelectedObjectControl();
-            user.Control();
+            bool value = true;
+            while (value)
+            {
+                Console.WriteLine("для выхода пользователю нажмите quit ");
+                if (Console.ReadLine() == "quit")
+                {
+                    value = false;
+                }
+                else
+                {
+                    Identification();
+                    handler.SelectedObjectControl();
+                    user.Control();
+                }
+            }
         }
     }
 }
