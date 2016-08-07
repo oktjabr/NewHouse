@@ -8,6 +8,8 @@ namespace HouseProgectThird
 {
     class House
     {
+
+        // строка 
         //IHouseObjectInterface tv;
         //IHouseObjectInterface boiler;
         //IHouseObjectInterface fridge;
